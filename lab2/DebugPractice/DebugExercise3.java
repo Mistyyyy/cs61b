@@ -20,6 +20,7 @@ public class DebugExercise3 {
 
     public static void main(String[] args) {
         In in = new In("foods.csv");
+        System.out.println(123);
         System.out.println(countTurnips(in));
     }
 }
