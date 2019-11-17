@@ -5,7 +5,7 @@ public class Planet {
     public double yyVel; //  it's current velocity in the y direction
     public double mass; //   it's mass
     public String imgFileName; // The name of the file that corresponds to the image that depicts the planet
-    public double G = 6.67e-11;
+    private double G = 6.67e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;

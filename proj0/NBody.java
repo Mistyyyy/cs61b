@@ -1,6 +1,6 @@
 public class NBody {
 
-    public static String bg = "images/starfield.jpg";
+    private static String bg = "images/starfield.jpg";
 
     public static void main(String[] args) {
        double T = Double.parseDouble(args[0]);
@@ -19,7 +19,7 @@ public class NBody {
 
        StdDraw.enableDoubleBuffering();
        StdDraw.show();
-       for(double time = 0; time < T; time += dt) {
+       for(double time = 0; time <= T; time += dt) {
            double[] xForce = new double[N];
            double[] yForce = new double[N];
            for(int j = 0; j < N; j++) {
