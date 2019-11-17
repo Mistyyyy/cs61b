@@ -1,4 +1,4 @@
-public class ArrayDeque<T> implements Deque<T> {
+public class ArrayDeque<T> {
     private int size = 0;
     private int initArraySize = 8;
     private double factor = 0.25;
@@ -35,7 +35,7 @@ public class ArrayDeque<T> implements Deque<T> {
         lastPointer = -1;
     }
 
-    public void add(T item) {
+    private void add(T item) {
         size += 1;
         int addIdx = 0;
         if (size > initArraySize) {
@@ -49,7 +49,7 @@ public class ArrayDeque<T> implements Deque<T> {
         lastPointer = addIdx;
     }
 
-    public void remove() {
+    private void remove() {
         size -= 1;
         int removeIdx = getDescIndex(lastPointer);
         dequeContainer[lastPointer] = null;

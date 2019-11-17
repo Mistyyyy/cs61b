@@ -1,5 +1,3 @@
-import java.lang.reflect.AnnotatedArrayType;
-
 public class ArrayDequeTest {
 
     /* Utility method for printing out empty checks. */
@@ -86,17 +84,17 @@ public class ArrayDequeTest {
 
         passed = checkEqual(10, removed) && passed;
 
-        lld1.add(11);
-        lld1.add(12);
-        lld1.add(13);
+        lld1.addLast(11);
+        lld1.addLast(12);
+        lld1.addLast(13);
         lld1.addFirst(14);
         lld1.addFirst(15);
         lld1.addFirst(16);
-        lld1.add(17);
-        lld1.add(18);
-        lld1.add(19);
+        lld1.addLast(17);
+        lld1.addLast(18);
+        lld1.addLast(19);
         //should not be empty
-        passed =checkEmpty(false, lld1.isEmpty()) && passed;
+        passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
         int removed1 = lld1.removeLast();
         passed = checkEqual(19, removed1) && passed;
@@ -117,9 +115,9 @@ public class ArrayDequeTest {
         // should be empty
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
-        lld1.add(1);
+        lld1.addLast(1);
 
-        lld1.add(2);
+        lld1.addLast(2);
 
         passed = checkEqual(1, lld1.get(0)) && passed;
 

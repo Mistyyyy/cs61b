@@ -1,4 +1,4 @@
-public class LinkedListDeque<T> implements Deque<T> {
+public class LinkedListDeque<T> {
     /* represent the deque's length */
     private int size;
     /* the pointer which is point to the first Node in LinkedListDeque */
@@ -23,7 +23,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         last = null;
     }
 
-    public void add(T item) {
+    private void add(T item) {
         size += 1;
         Node<T> newNode = new Node(item);
         if (first == null) {
@@ -36,7 +36,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         }
     }
 
-    public void remove() {
+    private void remove() {
         if (last != null) {
             size -= 1;
             if (first == last) {

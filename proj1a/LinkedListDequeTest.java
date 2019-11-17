@@ -1,6 +1,5 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -27,7 +26,7 @@ public class LinkedListDequeTest {
 		return true;
 	}
 
-	/* Prints a nice message based on whether a test passed. 
+	/* Prints a nice message based on whether a test passed.
 	 * The \n means newline. */
 	public static void printTestStatus(boolean passed) {
 		if (passed) {
@@ -37,8 +36,8 @@ public class LinkedListDequeTest {
 		}
 	}
 
-	/** Adds a few things to the list, checking isEmpty() and size() are correct, 
-	  * finally printing the results. 
+	/** Adds a few things to the list, checking isEmpty() and size() are correct,
+	  * finally printing the results.
 	  *
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
@@ -74,25 +73,25 @@ public class LinkedListDequeTest {
 
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-		// should be empty 
+		// should be empty
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst(10);
-		// should not be empty 
+		// should not be empty
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
 		int removed = lld1.removeFirst();
 
 		passed = checkEqual(10, removed) && passed;
 
-		lld1.add(11);
+		lld1.addLast(11);
 
 		//should not be empty
-		passed =checkEmpty(false, lld1.isEmpty()) && passed;
+		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
-		lld1.remove();
+		lld1.removeLast();
 
-		// should be empty 
+		// should be empty
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
 		printTestStatus(passed);
@@ -108,9 +107,9 @@ public class LinkedListDequeTest {
 		// should be empty
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
-		lld1.add(1);
+		lld1.addLast(1);
 
-		lld1.add(2);
+		lld1.addLast(2);
 
 		passed = checkEqual(1, lld1.get(0)) && passed;
 
@@ -131,4 +130,4 @@ public class LinkedListDequeTest {
 		addRemoveTest();
 		getItemTest();
 	}
-} 
+}
