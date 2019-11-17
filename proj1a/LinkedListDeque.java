@@ -6,7 +6,7 @@ public class LinkedListDeque<T> {
     /* the pointer which is point to the last Node in LinkedListDeque  */
     private Node<T> last;
 
-    public class Node<T> {
+    private class Node<T> {
         private T item;
         private Node<T> next;
         private Node<T> previous;

@@ -52,7 +52,6 @@ public class ArrayDeque<T> {
     private void remove() {
         size -= 1;
         int removeIdx = getDescIndex(lastPointer);
-//        dequeContainer[lastPointer] = null;
         lastPointer = removeIdx;
         if (isEmpty()) {
             resetIdx();
@@ -98,7 +97,6 @@ public class ArrayDeque<T> {
         }
         size -= 1;
         T res = dequeContainer[frontPointer];
-//        dequeContainer[frontPointer] = null;
         frontPointer = getIncIndex(frontPointer);
         if (isEmpty()) {
             resetIdx();
