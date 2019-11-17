@@ -42,7 +42,6 @@ public class ArrayDequeTest {
      * && is the "and" operation. */
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
-        System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
         ArrayDeque<String> lld1 = new ArrayDeque<String>();
 
         boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -68,10 +67,32 @@ public class ArrayDequeTest {
 
     /** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
     public static void addRemoveTest() {
-
         System.out.println("Running add/remove test.");
+        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 
-        System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+        boolean passed = checkEmpty(true, lld1.isEmpty());
+
+        lld1.addFirst(10);
+        int val = lld1.removeLast();
+
+        passed = checkEmpty(true, lld1.isEmpty()) && passed;
+
+        passed = checkEqual(10, val) && passed;
+
+        lld1.addFirst(11);
+        int val1 = lld1.removeFirst();
+
+        passed = checkEmpty(true, lld1.isEmpty()) && passed;
+        passed = checkEqual(11,  val1) && passed;
+
+        printTestStatus(passed);
+    }
+
+    /** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
+    public static void addRemoveResizeTest() {
+
+        System.out.println("Running add/remove resizing test.");
+
         ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
         // should be empty
         boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -110,7 +131,6 @@ public class ArrayDequeTest {
 
         System.out.println("Running getItem test.");
 
-        System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
         ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
         // should be empty
         boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -135,6 +155,7 @@ public class ArrayDequeTest {
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
         addIsEmptySizeTest();
+        addRemoveResizeTest();
         addRemoveTest();
         getItemTest();
     }

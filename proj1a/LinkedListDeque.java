@@ -134,10 +134,10 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return node.item;
         }
-        if (node == null) {
+        if (node == null || index < 0) {
             return null;
         }
-        return getItemRecursive(index--, node.next);
+        return getItemRecursive(--index, node.next);
     }
 
     /*

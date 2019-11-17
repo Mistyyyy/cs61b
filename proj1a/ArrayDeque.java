@@ -11,13 +11,13 @@ public class ArrayDeque<T> {
     }
 
     private void expandArray() {
-        int tempInitArraySize = (int) (initArraySize * factor + initArraySize);
+        int tempInitArraySize = (int) (size * factor + size);
         T [] copyContainer = (T[]) new Object[tempInitArraySize];
-        for (int i = 0; i < initArraySize; i++) {
+        for (int i = 0; i < size; i++) {
             copyContainer[i] = get(i);
         }
         frontPointer = 0;
-        lastPointer = initArraySize - 1;
+        lastPointer = size - 1;
         initArraySize = tempInitArraySize;
         dequeContainer = copyContainer;
     }
@@ -41,7 +41,7 @@ public class ArrayDeque<T> {
         if (size > initArraySize) {
             expandArray();
         }
-        if (frontPointer == -1) {
+        if (size == 1) {
             frontPointer = 0;
         }
         addIdx = getIncIndex(lastPointer);
@@ -64,7 +64,8 @@ public class ArrayDeque<T> {
         if (size > initArraySize) {
             expandArray();
         }
-        if (frontPointer == -1) {
+        if (size == 1) {
+            lastPointer = 0;
             frontPointer = 0;
         } else {
             frontPointer = getDescIndex(frontPointer);
