@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class ArrayDeque<T> implements Deque<T> {
     private int size = 0;
     private int initArraySize = 8;
@@ -44,7 +42,6 @@ public class ArrayDeque<T> implements Deque<T> {
             expandArray();
         }
         if (frontPointer == -1) {
-            // this pointer should reset after add items
             frontPointer = 0;
         }
         addIdx = getIncIndex(lastPointer);
@@ -88,7 +85,7 @@ public class ArrayDeque<T> implements Deque<T> {
     }
 
     public void printDeque() {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             T readValue = get(i);
             System.out.print(readValue + " ");
         }
