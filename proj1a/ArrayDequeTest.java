@@ -129,25 +129,22 @@ public class ArrayDequeTest {
     /** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
     public static void getItemTest() {
 
+        int N = 9;
+
         System.out.println("Running getItem test.");
 
         ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
         // should be empty
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
-        lld1.addLast(1);
+        for (int i = 0; i < N; i++) {
+            lld1.addLast(i);
+        }
 
-        lld1.addLast(2);
-
-        passed = checkEqual(1, lld1.get(0)) && passed;
-
-        lld1.addFirst(10);
-        // should not be empty
+        passed = checkEqual(N-1, lld1.get(N-1)) && passed;
 
         // should be empty
-        passed = checkEqual(10, lld1.get(0)) && passed;
-
-        passed =  checkSize(3, lld1.size()) && passed;
+        passed = checkEqual(0, lld1.get(0)) && passed;
 
         printTestStatus(passed);
     }
