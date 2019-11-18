@@ -4,18 +4,19 @@ import java.util.Formatter;
  * A naked recursive list of integers, similar to what we saw in lecture 3, but
  * with a large number of additional methods.
  *
- * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
+ * @author P. N. Hilfinger, with some modifications
+ * by Josh Hug and melaniecebula
  *         [Do not modify this file.]
  */
 public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -104,6 +105,31 @@ public class IntList {
         return res;
     }
 
+    /**
+     * Returns a reverse list after processed a current list.
+     * @param L the IntList instance to be reversed
+     */
+    public static IntList reverse(IntList L) {
+        if (L == null) {
+            return null;
+        }
+        if (L.rest == null) {
+            return L;
+        }
+        if (L.rest != null && L.rest.rest == null) {
+            int temp = L.first;
+            L.first = L.rest.first;
+            L.rest.first = temp;
+            return L;
+        }
+        IntList.reverse(L.rest);
+        int temp = L.first;
+        L.first = L.rest.first;
+        L.rest.first = temp;
+        IntList.reverse(L.rest);
+        return L;
+    }
+
 
 
 
@@ -184,6 +210,7 @@ public class IntList {
      * even use this method. The point of this method is so that if you convert
      * an IntList into a String and that IntList has a loop, your computer
      * doesn't get stuck in an infinite loop.
+     * @param A IntList instance
      */
 
     private int detectCycles(IntList A) {
