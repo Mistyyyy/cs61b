@@ -141,7 +141,7 @@ public class ArrayDequeTest {
             lld1.addLast(i);
         }
 
-        passed = checkEqual(N-1, lld1.get(N-1)) && passed;
+        passed = checkEqual(N - 1, lld1.get(N - 1)) && passed;
 
         // should be empty
         passed = checkEqual(0, lld1.get(0)) && passed;
