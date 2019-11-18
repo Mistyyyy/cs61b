@@ -38,14 +38,14 @@ public class ArrayDeque<T> {
     }
 
     private void add(T item) {
-        size += 1;
         int addIdx = 0;
-        if (size > dequeContainer.length) {
+        if (size == dequeContainer.length) {
             expandArray(size * 2);
         }
-        if (size == 1) {
+        if (size == 0) {
             frontPointer = 0;
         }
+        size += 1;
         addIdx = getIncIndex(lastPointer);
         dequeContainer[addIdx] = item;
         lastPointer = addIdx;
@@ -65,16 +65,16 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        size += 1;
-        if (size > dequeContainer.length) {
+        if (size == dequeContainer.length) {
             expandArray(size * 2);
         }
-        if (size == 1) {
+        if (size == 0) {
             lastPointer = 0;
             frontPointer = 0;
         } else {
             frontPointer = getDescIndex(frontPointer);
         }
+        size += 1;
         dequeContainer[frontPointer] = item;
     }
 
