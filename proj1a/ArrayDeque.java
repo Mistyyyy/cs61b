@@ -12,7 +12,7 @@ public class ArrayDeque<T> {
 
     private void expandArray(int capacity) {
         T [] copyContainer = (T[]) new Object[capacity];
-        for (int i = 0; i < dequeContainer.length; i++) {
+        for (int i = 0; i < size; i++) {
             copyContainer[i] = get(i);
         }
         frontPointer = 0;
