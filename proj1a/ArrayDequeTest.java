@@ -141,11 +141,10 @@ public class ArrayDequeTest {
             lld1.addLast(i);
         }
 
-        passed = checkEqual(N - 19, lld1.get(N - 19)) && passed;
-        passed = checkEqual(N - 1, lld1.get(N - 1)) && passed;
-
-        // should be empty
-        passed = checkEqual(0, lld1.get(0)) && passed;
+        for (int i = N; i > 0; i--) {
+            // should be empty
+            passed = checkEqual(N - i, lld1.get(N - i)) && passed;
+        }
 
         printTestStatus(passed);
     }
