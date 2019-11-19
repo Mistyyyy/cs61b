@@ -122,11 +122,14 @@ public class IntList {
             L.rest.first = temp;
             return L;
         }
-        IntList.reverse(L.rest);
+        reverse(L.rest);
         int temp = L.first;
-        L.first = L.rest.first;
-        L.rest.first = temp;
-        IntList.reverse(L.rest);
+        IntList copy = L;
+        while (copy.rest != null) {
+            copy.first = copy.rest.first;
+            copy = copy.rest;
+        }
+        copy.first = temp;
         return L;
     }
 

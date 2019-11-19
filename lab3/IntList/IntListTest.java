@@ -71,16 +71,17 @@ public class IntListTest {
         IntList A = IntList.of();
         IntList B = IntList.of(1, 2, 3);
         IntList C = IntList.of(1, 2);
-        IntList expA = IntList.of();
+        IntList D = IntList.of(1, 2, 3, 4);
         IntList expB = IntList.of(3, 2, 1);
         IntList expC = IntList.of(2, 1);
-        assertEquals(expA, IntList.reverse(A));
+        IntList expD = IntList.of(4, 3, 2, 1);
+        assertEquals(null, IntList.reverse(A));
         assertEquals(expB, IntList.reverse(B));
         assertEquals(expC, IntList.reverse(C));
+        IntList.reverse(D);
+        assertEquals(expD, D);
         IntList.reverse(B);
         assertEquals(IntList.of(1, 2, 3), B);
-        assertEquals(expB, IntList.reverse(B));
-        assertEquals(C, IntList.reverse(C));
     }
 
     /** If you're running this from the command line, you'll need
