@@ -126,6 +126,9 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
+        if (index < 0 || index > size) {
+            return null;
+        }
         return dequeContainer[(index + frontPointer) % dequeContainer.length];
     }
 }
