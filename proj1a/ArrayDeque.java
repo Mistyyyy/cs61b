@@ -16,7 +16,7 @@ public class ArrayDeque<T> {
             copyContainer[i] = get(i);
         }
         frontPointer = 0;
-        lastPointer = dequeContainer.length - 1;
+        lastPointer = size - 1;
         dequeContainer = copyContainer;
     }
 

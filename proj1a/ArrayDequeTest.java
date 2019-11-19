@@ -150,10 +150,33 @@ public class ArrayDequeTest {
         printTestStatus(passed);
     }
 
+    public static void getRemoveRandomTest() {
+        int N = 500;
+        int factor = 1979;
+
+        System.out.println("Running getRemoveRandom Test");
+        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+
+        // should be equal
+        boolean passed = checkEmpty(true, lld1.isEmpty());
+
+        for (int i = 0; i < N; i++) {
+            lld1.addLast(i + factor);
+        }
+
+        for (int i = N - 1; i >= 0; i--) {
+            passed = checkEqual(i + factor, lld1.removeLast()) && passed;
+        }
+
+        passed = checkEmpty(true, lld1.isEmpty());
+        printTestStatus(passed);
+    }
+
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
         addIsEmptySizeTest();
         addRemoveResizeTest();
+        getRemoveRandomTest();
         addRemoveTest();
         getItemTest();
     }
