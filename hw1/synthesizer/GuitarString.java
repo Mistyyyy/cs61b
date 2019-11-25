@@ -9,6 +9,8 @@ public class GuitarString {
     /* energy decay factor */
     private static final double DECAY = .996;
 
+    private static final double INITIAL = 0.0;
+
     /* Buffer for storing sound data. */
     private BoundedQueue<Double> buffer;
 
@@ -45,6 +47,6 @@ public class GuitarString {
         if (!buffer.isEmpty()) {
             return buffer.peek();
         }
-        return 0.9;
+        return INITIAL;
     }
 }
